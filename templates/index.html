@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="container">
+
+<h1>Job Application Tracker</h1>
+
+<form method="POST" action="/add">
+    <input name="company" placeholder="Company" required>
+    <input name="role" placeholder="Role" required>
+    <button>Add Job</button>
+</form>
+
+<h2>Applications</h2>
+
+<ul>
+{% for job in jobs %}
+    <li>{{ job.company }} — {{ job.role }} — {{ job.status }}</li>
+{% endfor %}
+</ul>
+
+</div>
+</body>
+</html>
